@@ -261,7 +261,7 @@ In `capacitor.config.json`:
 In `capacitor.config.ts`:
 
 ```ts
-/// <reference types="@capacitor-community/safe-area" />
+/// <reference types="@outloud/ionic-safe-area" />
 
 import { CapacitorConfig } from '@capacitor/cli';
 

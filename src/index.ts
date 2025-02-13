@@ -7,11 +7,17 @@ const SafeArea = registerPlugin<SafeAreaPlugin>('SafeArea', {
 });
 
 function setProperty(position: 'top' | 'left' | 'bottom' | 'right') {
-  if (typeof document !== 'undefined') {
-    document
-      .querySelector<HTMLElement>(':root')
-      ?.style.setProperty(`--safe-area-inset-${position}`, `max(env(safe-area-inset-${position}), 0px)`);
+  if (typeof document === 'undefined') {
+    return
   }
+
+  const el = document.querySelector<HTMLElement>(':root')
+
+  if (!el ){
+    return
+  }
+
+  el.style.setProperty(`--safe-area-inset-${position}`, `max(env(safe-area-inset-${position}), 0px)`);
 }
 
 /**
